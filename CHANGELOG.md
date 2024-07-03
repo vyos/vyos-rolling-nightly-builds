@@ -1,10 +1,4 @@
 ## vyos-1x
-- smoketest: ospf: T4739: add timeout in ldp test
-   - PR: vyos/vyos-1x#3454
-- op mode: T6339: display build flavor and comment in "show version"
-   - PR: vyos/vyos-1x#3456
-- op mode: T3355: remove the mention of legacy non-image installations
-   - PR: vyos/vyos-1x#3457
 - T6335: Add/Update EVPN op commands
    - PR: vyos/vyos-1x#3458
 - T6347: CGNAT fix error if pool contain dashes in the name
@@ -291,6 +285,8 @@
    - PR: vyos/vyos-1x#3760
 - T6546: unused import check permission update
    - PR: vyos/vyos-1x#3769
+- op-mode: T6537: include hostname in the reboot/shutdown warning message
+   - PR: vyos/vyos-1x#3767
 
 
 ## vyos-build
