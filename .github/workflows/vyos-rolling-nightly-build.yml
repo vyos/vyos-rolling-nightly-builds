@@ -172,6 +172,7 @@ jobs:
       - test_raid1_install
     runs-on: ubuntu-24.04
     steps:
+      - uses: actions/checkout@v4
       - name: Clone vyos-build source code
         uses: actions/checkout@v4
         with:
