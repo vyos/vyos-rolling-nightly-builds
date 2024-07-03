@@ -1,7 +1,7 @@
 name: VyOS rolling nightly build
 
 on:
-#  push:
+  push:
 #   schedule:
 #     - cron: "0 0 * * *"
 
@@ -49,6 +49,12 @@ on:
         type: boolean
         default: false
 
+env:
+  BUILD_BY: autobuild@vyos.net
+  DEBIAN_MIRROR: http://deb.debian.org/debian/
+  VYOS_MIRROR: https://rolling-packages.vyos.net/current/
+  DOCKER_CALL_ON_KVM_HOST_WITH_IMAGE_PULL: docker run --rm --privileged --pull=always -v ~/vyos-build:/vyos -w /vyos vyos/vyos-build:current
+
 jobs:
   build_iso:
     runs-on: ubuntu-24.04
@@ -59,10 +65,6 @@ jobs:
       options: --sysctl net.ipv6.conf.lo.disable_ipv6=0 --privileged
     outputs:
       build_version: ${{ steps.set_env_variables.outputs.build_version }}
-    env:
-      BUILD_BY: autobuild@vyos.net
-      DEBIAN_MIRROR: http://deb.debian.org/debian/
-      VYOS_MIRROR: https://rolling-packages.vyos.net/current/
     steps:
       ### Initialization ###
       - uses: actions/checkout@v4
@@ -125,9 +127,9 @@ jobs:
     needs: build_iso
     runs-on: ubuntu-24.04
     timeout-minutes: 20
-    container:
-      image: vyos/vyos-build:current
-      options: --sysctl net.ipv6.conf.lo.disable_ipv6=0 --privileged
+    # container:
+    #   image: vyos/vyos-build:current
+    #   options: --sysctl net.ipv6.conf.lo.disable_ipv6=0 --privileged
     outputs:
       exit_code: ${{ steps.test.outputs.exit_code }}
     steps:
@@ -140,17 +142,27 @@ jobs:
         with:
           name: vyos-${{ needs.build_iso.outputs.build_version }}-generic-amd64
           path: build
-      - name: VyOS RAID1 installation tests
-        id: test
-        shell: bash
-        run: |
-          # Use "common" name for ISO image when running smoketests
-          ln -s vyos-${{ needs.build_iso.outputs.build_version }}-generic-amd64.iso build/live-image-amd64.hybrid.iso
-          ls -al
-          ls -al build
-          # always fail first
-          echo "exit_code=1" >> $GITHUB_OUTPUT
-          sudo make testraid
-          exit_code=$?
-          echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
-          exit $exit_code
+      # - name: VyOS RAID1 installation tests
+      #   id: test
+      #   shell: bash
+      #   run: |
+      #     # Use "common" name for ISO image when running smoketests
+      #     ln -s vyos-${{ needs.build_iso.outputs.build_version }}-generic-amd64.iso build/live-image-amd64.hybrid.iso
+      #     # always fail first
+      #     echo "exit_code=1" >> $GITHUB_OUTPUT
+      #     sudo make testraid
+      #     exit_code=$?
+      #     echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
+      #     exit $exit_code
+      - name: RAID1 installation tests
+        id: smoketest_raid
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          timeout: 15m
+          command_timeout: 180m
+          script: |
+            ${{ env.DOCKER_CALL_ON_KVM_HOST_WITH_IMAGE_PULL }} /bin/bash -c "sudo make testraid | tee smoketest_raid.log"
