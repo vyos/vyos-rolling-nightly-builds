@@ -1,4 +1,278 @@
 ## vyos-1x
+- smoketest: ospf: T4739: add timeout in ldp test
+   - PR: vyos/vyos-1x#3454
+- op mode: T6339: display build flavor and comment in "show version"
+   - PR: vyos/vyos-1x#3456
+- op mode: T3355: remove the mention of legacy non-image installations
+   - PR: vyos/vyos-1x#3457
+- T6335: Add/Update EVPN op commands
+   - PR: vyos/vyos-1x#3458
+- T6347: CGNAT fix error if pool contain dashes in the name
+   - PR: vyos/vyos-1x#3463
+- T6351: CGNAT add verification if the pool exists
+   - PR: vyos/vyos-1x#3464
+- T6350: CGNAT add op-mode to show allocation
+   - PR: vyos/vyos-1x#3466
+- T6358: Container config option to enable host pid
+   - PR: vyos/vyos-1x#3472
+- T6354: Get rid of the custom boot type check in version.py
+   - PR: vyos/vyos-1x#3474
+- op mode: T6348: SNAT op-mode fails with flowtable offload entries
+   - PR: vyos/vyos-1x#3471
+- T6349: updated conflict check workflow
+   - PR: vyos/vyos-1x#3468
+- T6354: do an explicit read from version file to avoid circular reference
+   - PR: vyos/vyos-1x#3480
+- T5169: Add smoketest for CGNAT
+   - PR: vyos/vyos-1x#3479
+- T6349: updated pr-labels workflow permission
+   - PR: vyos/vyos-1x#3485
+- T6364: CGNAT drop hard limit that allows only one translation rule
+   - PR: vyos/vyos-1x#3483
+- T6372: added codeowners
+   - PR: vyos/vyos-1x#3488
+- op-mode: T6367: fix "force commit-archive" TypeError
+   - PR: vyos/vyos-1x#3489
+- T6375: Fix/Update NAT logging
+   - PR: vyos/vyos-1x#3493
+- T6366: CGNAT add ability to get external and internal allocations
+   - PR: vyos/vyos-1x#3490
+- T6373: QoS Policy Limiter - classes for marked traffic do not work
+   - PR: vyos/vyos-1x#3494
+- rollback-soft: T6384: tell the user to compare or commit
+   - PR: vyos/vyos-1x#3501
+- T6378: remove labler yml as it is kept in reusable workflow repo
+   - PR: vyos/vyos-1x#3500
+- nat: T6365: remove warnings for negated interface selections by name
+   - PR: vyos/vyos-1x#3482
+- vyos.utils.io: T6385: handle keyboard interrupts in ask_yes_no
+   - PR: vyos/vyos-1x#3502
+- dhcpv6-server: T6381: fix typos in select ConfigError messages in current
+   - PR: vyos/vyos-1x#3508
+- nat66: T6365: remove warnings for negated interface selections by name
+   - PR: vyos/vyos-1x#3505
+- nat: T6345: source NAT port mapping "fully-random" is superfluous in Kernel >=5.0
+   - PR: vyos/vyos-1x#3507
+- reverse-proxy: T6370: Set custom HTTP headers in reverse-proxy responses
+   - PR: vyos/vyos-1x#3487
+- load-balancing haproxy: T6391: fix typo in timeout help
+   - PR: vyos/vyos-1x#3513
+- op-mode: T6400: pki: unable to generate fingerprint for ACME issued certificates
+   - PR: vyos/vyos-1x#3518
+- op-mode: T6377: must call pki.py helper as root to work with ACME certificates
+   - PR: vyos/vyos-1x#3517
+- reverse-proxy: T6402: Fix invalid checks in validation script
+   - PR: vyos/vyos-1x#3523
+- smoketest: T6395: check for VFIO options to be present
+   - PR: vyos/vyos-1x#3522
+- T6406: Container CPU limits
+   - PR: vyos/vyos-1x#3530
+- T5786: Add set/show system image to /image endpoint
+   - PR: vyos/vyos-1x#3529
+- op_mode: T6389: Check architecture and flavor compatibility on upgrade attempts
+   - PR: vyos/vyos-1x#3533
+- openvpn: T6374: ensure that TLS role is configured for site-to-site with TLS
+   - PR: vyos/vyos-1x#3528
+- ISIS: T6332: Fix isis not working only ipv6
+   - PR: vyos/vyos-1x#3537
+- T6411: CGNAT fix sequences for external address ranges
+   - PR: vyos/vyos-1x#3534
+- T6349: Reuse repo sync
+   - PR: vyos/vyos-1x#3540
+- openvpn: T6374: only check TLS role for s2s if TLS is configured
+   - PR: vyos/vyos-1x#3541
+- T6415: Fix variables for repo sync
+   - PR: vyos/vyos-1x#3543
+- NAT: T6371: fix NAT op mode when list of ports/ranges configured
+   - PR: vyos/vyos-1x#3532
+- T6415: Allow repo-sync workflow to be triggered manually
+   - PR: vyos/vyos-1x#3549
+- hostname: T6421: enforce explicit CLI priority for host-name and domain-name
+   - PR: vyos/vyos-1x#3551
+- container: T6406: fix NameError: name 'vyos' is not defined
+   - PR: vyos/vyos-1x#3547
+- reverse-proxy: T6419: build full CA chain when verifying backend server
+   - PR: vyos/vyos-1x#3546
+- op-mode: ipsec: T6407: fix profile generation
+   - PR: vyos/vyos-1x#3552
+- T4576: Accel-ppp logging level configuration
+   - PR: vyos/vyos-1x#3510
+- reverse-proxy: T6409: Remove unused backend parameters
+   - PR: vyos/vyos-1x#3531
+- conntrack: T6396: correction to helper message for ipv4/ipv6 custom timeout rule
+   - PR: vyos/vyos-1x#3563
+- op-mode: T683: remove superfluous debug print in snmpv3 display code
+   - PR: vyos/vyos-1x#3564
+- T5307: QoS - traffic-class-map services
+   - PR: vyos/vyos-1x#3492
+- dns: T6422: allow multiple redundant NS records
+   - PR: vyos/vyos-1x#3557
+- T6415: repo sync using pull_request_target
+   - PR: vyos/vyos-1x#3569
+- tunnel: T6157: fixing GRE tunnel uniqueness checks
+   - PR: vyos/vyos-1x#3570
+- reverse-proxy: T6434: Support additional healthcheck options
+   - PR: vyos/vyos-1x#3574
+- bfd: T6440: BFD peer length typo
+   - PR: vyos/vyos-1x#3579
+- nat64: T6403: validate source prefix for RFC compliance
+   - PR: vyos/vyos-1x#3572
+- T6431: op-mode command "monitor traceroute" missing recursive symlink
+   - PR: vyos/vyos-1x#3582
+- GitHub: add action to build package on PR
+   - PR: vyos/vyos-1x#3560
+- isis: T6429: fix isis metric-style configuration missing
+   - PR: vyos/vyos-1x#3571
+- show version: T6446: display the support URL for LTS builds
+   - PR: vyos/vyos-1x#3584
+- migration: T6006: add system component version to config.boot.default by separating activation from migration
+   - PR: vyos/vyos-1x#3587
+- vxlan: T6401: Avoid calling get_vxlan_vni_filter() unless we need it
+   - PR: vyos/vyos-1x#3573
+- T3900: Add support for raw tables in firewall
+   - PR: vyos/vyos-1x#3578
+- T6412: CGNAT fix allocation calcluation for verify
+   - PR: vyos/vyos-1x#3585
+- xml: T6423: enforce priority on nodes having an owner
+   - PR: vyos/vyos-1x#3589
+- grub: T6453: Fixed GRUB variables parsing
+   - PR: vyos/vyos-1x#3592
+- reverse-proxy: T6454: Set default value of http for haproxy mode
+   - PR: vyos/vyos-1x#3598
+- T6449: added pr update trigger
+   - PR: vyos/vyos-1x#3596
+- firewall: T3900: T6394: remove unused import
+   - PR: vyos/vyos-1x#3607
+- pki: T6464: sstpc interface not reloaded when updating SSL certificate(s)
+   - PR: vyos/vyos-1x#3613
+- pki: T6463: reverse-proxy service not reloaded when updating SSL certificate(s)
+   - PR: vyos/vyos-1x#3612
+- op-mode: T6424: ipsec: honor certificate CN and CA chain during profile generation
+   - PR: vyos/vyos-1x#3610
+- T6219: Add support for container sysctl parameter
+   - PR: vyos/vyos-1x#3614
+- T6467: add PR checks workflows for sagitta branch
+   - PR: vyos/vyos-1x#3615
+- vyos.utils: T5195: import vyos.cpu to this package
+   - PR: vyos/vyos-1x#3606
+- T6442: CGNAT add log for address allocation
+   - PR: vyos/vyos-1x#3621
+- T6469: remove j2 lint workflow
+   - PR: vyos/vyos-1x#3626
+- op-mode: T6471: add optimized get_config_dict
+   - PR: vyos/vyos-1x#3628
+- wireless: T6462: add op-mode command for hostapd and wpa_supplicant logs
+   - PR: vyos/vyos-1x#3611
+- firewall: T3900: fix migration and smoketests
+   - PR: vyos/vyos-1x#3632
+- bgp: T6473: missing completion helper for peer-groups inside a VRF
+   - PR: vyos/vyos-1x#3638
+- T6476: added sonarcloud workflow
+   - PR: vyos/vyos-1x#3642
+- op_mode: T6227:  Rewrite show conntrack-sync cache internal to use tabulate output
+   - PR: vyos/vyos-1x#3644
+- T6045: Recreate show lldp detail views & improve remote port selection
+   - PR: vyos/vyos-1x#3590
+- T6456: Convert "monitor traffic" to modern op-mode wrapper
+   - PR: vyos/vyos-1x#3601
+- openvpn: T5487:  Remove deprecated option --cipher for server and client mode
+   - PR: vyos/vyos-1x#3639
+- T6487: updated central workflows to use current branch
+   - PR: vyos/vyos-1x#3647
+- op-mode: T6407: "generate pki" missed to mangle in ACME certificates when required
+   - PR: vyos/vyos-1x#3646
+- op-mode: T6480: must call pki.py helper as root to work with ACME certificates
+   - PR: vyos/vyos-1x#3645
+- openvpn: T5487: make migration script executable
+   - PR: vyos/vyos-1x#3653
+- openvpn: T5487:  Fix migration smoketests commands
+   - PR: vyos/vyos-1x#3659
+- T6494: Update sonarcloud.yml and add more branches for scanning
+   - PR: vyos/vyos-1x#3661
+- sonarcloud: Revert "T6494: Update sonarcloud.yml and add more branches for scanning"
+   - PR: vyos/vyos-1x#3663
+- wireless: T6318: move country-code to a system wide configuration
+   - PR: vyos/vyos-1x#3656
+- pki: T4026: Only emit private keys when available
+   - PR: vyos/vyos-1x#3655
+- pki: T6241: remove debug print statement about updated subsystems
+   - PR: vyos/vyos-1x#3657
+- wireless: T6318: add quotes for console speed in config-tests
+   - PR: vyos/vyos-1x#3675
+- T6489: Add support for CLI config scripts that change the underlaying working configuration
+   - PR: vyos/vyos-1x#3652
+- wireless: T6425: Fixing VHT beamforming for 802.11ac
+   - PR: vyos/vyos-1x#3576
+- T6492: Check if all migrators have the executable bit set
+   - PR: vyos/vyos-1x#3678
+- T6497: CGNAT delete conntrack entries if a pool is modified
+   - PR: vyos/vyos-1x#3680
+- macsec: T5447: fix error message syntax - there is no tx and rx key, only key
+   - PR: vyos/vyos-1x#3685
+- openconnect: T6500: add support for multiple ca-certificates
+   - PR: vyos/vyos-1x#3682
+- T5949: Add option to disable USB autosuspend
+   - PR: vyos/vyos-1x#3677
+- T3900: firewall: fix for initial implementation
+   - PR: vyos/vyos-1x#3693
+- op-mode: T5514: Allow safe reboots to config defaults when config.boot is deleted
+   - PR: vyos/vyos-1x#3654
+- snmp: T6489: use new Python wrapper to interact with config filesystem
+   - PR: vyos/vyos-1x#3694
+- op mode: T6498: move uptime helpers to vyos.utils.system
+   - PR: vyos/vyos-1x#3684
+- op-mode: T6503: "restart ssh" command not working
+   - PR: vyos/vyos-1x#3702
+- GitHub: T6494: add workflow to build custom ISO for integration tests
+   - PR: vyos/vyos-1x#3703
+- T3202: Enable wireguard debug messages
+   - PR: vyos/vyos-1x#3679
+- T6511: add circinus branch to workflow
+   - PR: vyos/vyos-1x#3710
+- op mode: T6501: add "run show kernel modules"
+   - PR: vyos/vyos-1x#3683
+- configd: T6504: send sudo_user on session init and set env variable
+   - PR: vyos/vyos-1x#3701
+- T5735: Stunnel CLI and configuration
+   - PR: vyos/vyos-1x#3588
+- op-mode: T6514: rework the "show system storage" code to handle live CD systems correctly
+   - PR: vyos/vyos-1x#3718
+- T3900: extend latest fix for firewall raw implementation to ipv6.
+   - PR: vyos/vyos-1x#3722
+- GitHub: T6494: extend ISO integration workflow
+   - PR: vyos/vyos-1x#3714
+- interfaces: T6519: harden config migration if ethernet interface is missing
+   - PR: vyos/vyos-1x#3724
+- T6520: added PR write permissions for smoke test workflow
+   - PR: vyos/vyos-1x#3728
+- T6510: smoketest: generell improvement task for the smoketesting platform
+   - PR: vyos/vyos-1x#3727
+- smoketest: T6510: remove build time test to check for /dev/input/event0
+   - PR: vyos/vyos-1x#3729
+- T6007: revise migration system
+   - PR: vyos/vyos-1x#3692
+- T6313: Add "NAT" to "generate" command for rule resequence
+   - PR: vyos/vyos-1x#3715
+- T6497: CGNAT refactoring delete conntrack entries
+   - PR: vyos/vyos-1x#3699
+- T6488: firewall: extend op-mode command to show global state-policy counters
+   - PR: vyos/vyos-1x#3681
+- op-mode: T5633, T6465: fix error when op cmd interrupted, updates some system call syntax
+   - PR: vyos/vyos-1x#3731
+- wireless: T6320: Add 802.11ax at 6GHz to VyOS
+   - PR: vyos/vyos-1x#3524
+- pppoe-server: T5710: Add option permit any-login
+   - PR: vyos/vyos-1x#3730
+- T6477: Add telegraf loki output plugin
+   - PR: vyos/vyos-1x#3720
+- utils: T6530: add a helper for easily calling iproute2 commands
+   - PR: vyos/vyos-1x#3737
+- T6452: Add QoS Op Commands
+   - PR: vyos/vyos-1x#3591
+- op-mode: T6524: rewrite "release dhcp(v6) interface" to new op-mode format
+   - PR: vyos/vyos-1x#3733
+- T6534: fix incorrect imports in vyos-config-encrypt.py
+   - PR: vyos/vyos-1x#3743
 - T6523: Telegraf use nft scripts only if the firewall configured
    - PR: vyos/vyos-1x#3748
 - T6527: add legacy Vyatta interpreter files still in use
@@ -7,6 +281,16 @@
    - PR: vyos/vyos-1x#3721
 - GitHub: T6494: add consolidated ISO test result comment on PR
    - PR: vyos/vyos-1x#3750
+- T6538: Add the ability to set GENEVE interfaces to VRF
+   - PR: vyos/vyos-1x#3752
+- op-mode: T6498: add machine-readable tech support report script
+   - PR: vyos/vyos-1x#3746
+- T6536: nat: add migration script that replaces wildcard charater
+   - PR: vyos/vyos-1x#3749
+- syslog: T5366: remove reference to deprecated sysvinit rsyslog script
+   - PR: vyos/vyos-1x#3760
+- T6546: unused import check permission update
+   - PR: vyos/vyos-1x#3769
 
 
 ## vyos-build
